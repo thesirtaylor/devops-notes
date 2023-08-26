@@ -1,0 +1,11 @@
+---systemctl---
+
+systemctl start servicename
+systemctl stop servicename
+systemctl is-active servicename
+systemctl is-enabled servicename
+systemctl restart servicemame
+systemctl reload servicename
+systemctl status servicemame
+
+

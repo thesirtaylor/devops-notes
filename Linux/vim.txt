@@ -1,0 +1,20 @@
+vim
+delete -> dd
+delete multiple lines `4 dd` -> delete 4 lines down
+undo -> u
+redo changes -> ctrl + R
+copy -> yy
+copy multiple lines `4 yy` -> copy 4 lines down
+paste -> 'P' paste above, 'p' -> paste below
+save -> :w
+exit ->  :q
+exit without saving -> :q!
+move to beginning of page -> gg
+move cursor forward by n words -> nw
+move cursor backwards by n words -> nb
+go to beginning of the page -> gg
+go to end of page -> G
+search for word -> /
+go to next found words -> n
+search and replace -> %/s/word_to_replace/new_word/g
+show line number -> se nu

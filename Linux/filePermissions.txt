@@ -1,0 +1,31 @@
+drwxr-xr-x
+
+1st Character -> file type
+next 3 Characters -> User 
+middle 3 Characters -> group
+last 3 Characters -> others
+
+permissions
+r - read - 4
+w - write - 2
+x - execute - 1 
+
+check directory permissions
+    - ls -ld /path/to/directory 
+
+change owner of a file
+    - chown user:group /path/to/directory
+change permission of files
+    add x for all user types
+        - chmod +x <path/to/file>
+    remove x permission for others
+        - chmod o-x /path/to/directory
+    add w permission for others
+        - chmod o+w /path/to/directory
+    add r permission for group
+        - chmod g+r /path/to/directory
+    full permission for user & group
+    no permission for others
+        - chmod -R 770 <path/to/file>
+    
+

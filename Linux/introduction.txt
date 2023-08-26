@@ -1,0 +1,10 @@
+Commands | Files | Softwares | Servers
+
+in Linux, everything is a file
+there are small single purpose programs
+the small programs can be chained together to solve complex problems
+configuration data are stored in text files
+
+
+linux flow
+hardware -> kernel -> shell -> application 

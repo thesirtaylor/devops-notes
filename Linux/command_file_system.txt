@@ -1,0 +1,17 @@
+Home directories -> /root, /home/username
+user executable -> /bin, /usr/bin, /usr/local/bin
+system executable -> /sbin, /usr/sbin, /usr/local/sbin
+other mountpoints -> /media , /mnt
+configuration -> /etc
+temporary files -> /tmp
+kernels and bootloaders -> /boot
+server data -> /var, /srv
+system information -> /proc, /sys
+shared libraries -> /lib, /usr/lib, /usr/local/lib
+
+
+command options arguments
+cp        -r      dev backup/
+ls        -l      /tmp/
+ls
+

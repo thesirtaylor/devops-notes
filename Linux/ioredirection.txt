@@ -1,0 +1,5 @@
+direction symbol '>'
+
+single '>' overwrites file while '>>' appends to file
+
+if the file being redirected to does not exist it will be recreated

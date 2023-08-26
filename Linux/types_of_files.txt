@@ -1,0 +1,22 @@
+to know type of file
+      file filename
+
+File Type       First     Character Description
+Regualar file    -    Normal files such as text, data, or executable   
+Directory        d    Fiels that are lists of other files
+Link             l    A shortcut that points to the location of the actual file
+special file     c    Mechanism used for input and output, such as files in /dev
+socket           s    A special file that provides inter-process networking protected
+                      by the file system's access control
+pipe             p    A special file that allows processes to communicate with each
+                      other without using network socket semantics
+
+
+creating link to a file
+ln -s /long/path/to/the/file/file.ext link_name
+
+to remove a link
+rm link_name
+unlink link_name
+
+ls -lt --> shows timestamp

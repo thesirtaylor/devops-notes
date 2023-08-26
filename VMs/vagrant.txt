@@ -1,0 +1,39 @@
+
+
+used to manage vm automatically
+for
+  creating
+  making changes
+  cleaning up
+
+vagrant does not replace hypervisors like vm wares etc, but it is built on top of them
+it uses those tools to manage and create vm
+
+vagrant solves problems like
+  - os installation
+  - time consumption
+  - human errors
+  - process replications
+
+
+configurations for vagrant is stored in `Vagrantfile`
+
+
+simple vagrant commands
+  vagrant init boxname
+  vagrant up
+  vagrant ssh
+  vagrant halt
+  vagrant destroy
+
+  vagrant box list
+  vagrant status
+  vagrant global-status  -> shows status of all vms
+
+steps to creating vm with vagrant
+  create a folder in local machine
+  place a Vagrantfile in that folder
+  issue command `vagrant up`
+  login to vm with `vagrant ssh`
+  stop with `vagrant halt`
+  destroy or delete with `vagrant destroy`

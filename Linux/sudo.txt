@@ -1,0 +1,6 @@
+To allow user use sudo without entering password
+
+- open sudoers file 
+    - run visudo
+- just under root do
+    - username ALL = (ALL:ALL) NOPASSWD:ALL

@@ -1,0 +1,49 @@
+controls access level on files
+
+types of users
+
+type    |  example     |     user id     |   group id  |   home dir    |     shell
+--------|--------------|-----------------|-------------|---------------|-------------
+root    |  root        |       0         |       0     |   /root       | /bin/bash
+        |              |                 |             |               |
+Regular |  thegodtune, |     1000-6000   |  1000-6000  | /home/username|  /bin/bash
+        |    vagrant   |                 |             |               |
+        |              |                 |             |               |
+service |    ftp, ssh  |                 |             |               |
+        |    apache    |      1-99       |    1-99     |  /var/ftp etc |  /sbin/nologin
+
+
+create a new user 
+    - useradd username
+create a new group
+    - groupadd groupname
+add user to group
+    - usermod -aG groupname usename
+    or open /etc/group and add the username to the group
+set password for user
+    - passwd username
+password can be reset, but the same way it was set, but by root user
+
+switch to another user
+    - su - username
+logout of user
+    - exit
+
+check group or user id
+    - id groupname_or_username
+check who logged in last
+    - last
+list of files opened by user
+    - lsof -u username
+    lsof (list of opened files)
+delete user
+    - userdel username
+delete user with their home Directory
+    - userdel -r username
+delete group
+    - groupdel groupname
+check users in a group
+    - cat /etc/group | grep <groupname>
+    - getent group <groupname>
+check users that have access to a file
+    - getfacl <path/to/file>

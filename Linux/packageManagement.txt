@@ -1,0 +1,18 @@
+installing packages with rpm
+
+- copy link to package from rpmfind.network
+- download .rpm with curl
+- install with rpm -ivh <path to .rpm>
+
+to download with curl
+    - curl <link to package> -o packagename.rpm
+
+    or
+use yum
+
+list hardware components
+    - sudo lshw
+list software components
+    - uname -a
+check hardware architecture
+    - uname -m

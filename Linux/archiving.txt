@@ -1,0 +1,17 @@
+    tar
+create archive
+    - tar -czvf filename.tar.gz <path/to/source>
+
+extract archive
+    - tar -xzvf path/to/archived/file
+extract to location
+    - tar -xvzf path/to/archived/file -C /path/to/new/location  
+
+check tar manpage to see more options
+
+    zip
+create archive
+    - zip -r filename.zip /path/to/file
+    file could be a directory
+extract archive
+    - unzip path/to/zipped/archive 

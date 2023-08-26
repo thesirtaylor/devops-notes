@@ -1,0 +1,22 @@
+--------grep--------
+grep -i word_to_search file
+grep -i word_to_search * -> searches word_to_search in all the files in the pwd
+grep -iR word_to_search * -> same as 4 but unlimited by directory nesting
+grep -vi word_to_omit_from_search where_to_search
+
+
+less 
+less
+
+-----head -> first few lines as specified-----
+head -2 file_to_search
+
+------tail -> last few lines as specified-------
+tail -2 file_to_search
+tail -f file_to_search -> shows live changes in file
+
+cut -d: -f1 /etc/passwd
+      ---> cut the word before the first (f1) ":" in the /etc/passwd file
+
+free -m --> shows memory information
+df -h --> shows partitioning information
