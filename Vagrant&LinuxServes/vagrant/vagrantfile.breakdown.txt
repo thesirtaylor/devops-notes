@@ -1,0 +1,100 @@
+A Vagrantfile is a configuration file used with Vagrant, a tool for managing and provisioning virtualized development environments.
+
+The Vagrantfile defines various aspects of the virtual machine environment, such ~as the base box~, ~networking~, and ~provisioning~.
+
+1. Vagrant Configuration Block:
+        Vagrant.configure("2") do |config|
+            # All Configuration settings go here
+        end
+    
+    This is the main configuration block where all the vagrant settings are defined. 
+    The "2" represents the version of the configuration format being used (Vagrant 2.x in this case).
+
+2. Box Configuration
+        config.vm.box = "ubuntu/bionic64"
+        config.vm.box_version = "20201204.0.0"
+
+    This is where the base box for the virtual machine is defined,
+    # config.vm.box_version is optional
+    A base box is a pre-packaged virtual machine image. In the example above we are using ubuntu/bionic64
+
+3. Network Configuration
+        config.vm.network "private_network", type: "dhcp"
+
+    This section configures the networking for the virtual machine (How the VM interacts with the host machine and external networks). In the example above, we're setting up a private network with DHCP, which allows the vm to have it's own IP address on a private network.
+
+        
+    1. Forwarded Port Mapping:
+
+        configures port forwarding from the host machine to the guest machine
+
+        The config.vm.network "forwarded_port" directive allows you to map a specific port on the host to a port on the guest.
+
+        # config.vm.network "forwarded_port", guest: 80, host: 8080
+
+        in the example above, accessing "localhost:8080" on the host will access port 80 on the guest machine.
+
+        # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+
+        in the example above, public access is restricted to the host's IP address "127.0.0.1".
+
+    2. Private Network:
+
+        configures a private network interface for the VM.
+
+        config.vm.network "private_network", ip: "192.168.56.16"
+
+        The `config.vm.network "private_network"` directive assigns a private IP address to the VM, allowing host-only communication.
+
+        In the example above, the VM will have the IP address "192.168.56.16" on a private network that is accessible only from the host.
+
+    3. Public Network (Bridged Network):
+
+        configures a public network interface for the VM, usually referred to as a bridged network.
+
+        the `config.vm.network "public_network"` directive creates a public network interface, allowing the VM to appear as a separate device on the network
+
+        Bridged networks make the VM accessible to other devices on the same network as if it were a standalone machine
+
+    port forwarding and private networks are often used for development and testing environments where you want isolated communication. 
+    public networks (bridged networks) are useful when you want your VM to be reachable from other devices on your local network.
+
+4. Provider Configuration:
+        config.vm.provider "virtualbox" do |vb|
+            vb.memory = "1024"
+            vb.cpus = 2
+        end
+
+    This is where the provider-specific settings are specified.
+    In the example above, we are using VirtualBox as the provider, we can set attributes like memory (vb.memory), CPUs (vb.cpus), etc allocated to the VM.
+
+5. Provisioning: 
+        config.vm.provision "shell", inline: <<-SHELL
+           sudo apt-get update
+           sudo apt-get install -y nginx
+        SHELL
+    This involves setting up the VM after it's booted
+    Allows additional provisioners such as Ansible, Chef, Docker, Puppet, and Salt.
+
+6. Synced Folders:
+        config.vm.synced_folder "src/", "/app"
+    This involves setting up synced folder, allowing you to share files between host and the VM.
+
+    In the example, the "src/" directory on the host is synced to the "/app" directory on the VM.
+
+7. Custom Scripts:
+        config.vm.provision "shell", path: "setup.sh"
+    external scripts can be executed during provisioning using this section.
+    In the example above "setup.sh"
+
+8. Conditional Configuration:
+        if ENV["VAGRANT_ENV"] == "development"
+            config.vm.provider "virtualbox" do |vb|
+                vb.memory = "2048"
+                vb.cpus = 4
+            end
+        end
+    
+    Settings can be Conditionally applied based on environment variables or other conditions. 
+
+    If the "VAGRANT_ENV" environment variable is set to "development" the VM's resources will be increased. 

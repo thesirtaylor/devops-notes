@@ -37,3 +37,15 @@ steps to creating vm with vagrant
   login to vm with `vagrant ssh`
   stop with `vagrant halt`
   destroy or delete with `vagrant destroy`
+
+
+
+differences between vagrant virtualization and docker virtualization
+
+1. Vagrant uses full virtualization to create complete vms.
+    this means theat it emulates a full hardware stack and runs a guest OS within the VM.
+   
+   Docker uses containerization, which leverages the host operating system's kernel to run containers. Containers share the host's kernel but are isolated from each other. 
+
+   1. is the reason why vagrant is not suitable for production, because it would consume a lot resources
+   Also, scaling Vagrant VMs for production workloads can be very challenging as it introduces various levels of complexity in setting up and managing hypervisors, guest OSes and VMs
